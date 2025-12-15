@@ -1,0 +1,78 @@
+{
+    "users": [
+        {
+            "username": "admin",
+            "password": "admin123",
+            "role": "admin"
+        },
+        {
+            "username": "operator",
+            "password": "op123",
+            "role": "user"
+        },
+        {
+            "username": "viewer",
+            "password": "view123",
+            "role": "user"
+        }
+    ],
+    "warehouses": [
+        {
+            "id": 1,
+            "name": "Main Warehouse"
+        },
+        {
+            "id": 2,
+            "name": "Store Backroom"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Phone Model A",
+            "quantity": 50,
+            "warehouse_id": 1,
+            "price": 199.99
+        },
+        {
+            "id": 2,
+            "name": "Charger",
+            "quantity": 150,
+            "warehouse_id": 1,
+            "price": 9.99
+        },
+        {
+            "id": 3,
+            "name": "Headphones",
+            "quantity": 30,
+            "warehouse_id": 2,
+            "price": 29.99
+        }
+    ],
+    "transactions": [
+        {
+            "timestamp": "2025-12-05 12:00:00",
+            "type": "INIT",
+            "product_id": 1,
+            "quantity": 50,
+            "from": null,
+            "to": 1
+        },
+        {
+            "timestamp": "2025-12-05 12:05:00",
+            "type": "INIT",
+            "product_id": 2,
+            "quantity": 150,
+            "from": null,
+            "to": 1
+        },
+        {
+            "timestamp": "2025-12-05 12:10:00",
+            "type": "INIT",
+            "product_id": 3,
+            "quantity": 30,
+            "from": null,
+            "to": 2
+        }
+    ]
+}

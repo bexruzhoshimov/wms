@@ -109,36 +109,59 @@ def clear_console():
 
 def run_menu_curses(stdscr, title, options, role=None):
     curses.curs_set(0)
-    stdscr.clear()
-    menu_items = [item for item in options if not item.get(
-        "role") or item.get("role") == role]
-    current_idx = 0
+    stdscr.keypad(True)
+    menu_items = [i for i in options if not i.get(
+        "role") or i.get("role") == role]
+    idx = 0
+    exit_program = False
 
-    while True:
-        clear_console()
+    while not exit_program:
         stdscr.clear()
         stdscr.addstr(0, 0, f"=== {title} ===", curses.A_BOLD)
-        for idx, item in enumerate(menu_items):
+        for i, item in enumerate(menu_items):
             label = item.get("label", "")
-            if idx == current_idx:
-                stdscr.addstr(idx+2, 2, f"> {label}", curses.A_REVERSE)
+            if i == idx:
+                stdscr.addstr(i+2, 2, f"> {label}", curses.A_REVERSE)
             else:
-                stdscr.addstr(idx+2, 4, label)
+                stdscr.addstr(i+2, 4, label)
         stdscr.refresh()
 
         key = stdscr.getch()
-        if key == curses.KEY_UP and current_idx > 0:
-            current_idx -= 1
-        elif key == curses.KEY_DOWN and current_idx < len(menu_items)-1:
-            current_idx += 1
-        elif key in [10, 13]:
-            item = menu_items[current_idx]
+        if key == curses.KEY_UP and idx > 0:
+            idx -= 1
+        elif key == curses.KEY_DOWN and idx < len(menu_items)-1:
+            idx += 1
+        elif key in (10, 13):
+            item = menu_items[idx]
             if item.get("action"):
-                curses.endwin()
-                clear_console
-                item["action"]()
-                input(textColor("\nDavom etish uchun Enter tugmasini bosing...", "yellow", "bold"))
-                stdscr = curses.initscr()
-                curses.curs_set(0)
-            if item.get("exit"):
-                break
+                func = item["action"]
+                if func.__name__ in ["warehouse_menu", "product_menu"]:
+                    func(stdscr)
+                else:
+                    restore_terminal()
+                    clear_console()
+                    func()
+                    try:
+                        input("\nDavom etish uchun Enter tugmasini bosing...")
+                    except:
+                        pass
+                    stdscr = curses.initscr()
+                    curses.curs_set(0)
+                    stdscr.keypad(True)
+            elif item.get("quit") or item.get("exit"):
+                exit_program = True
+            elif item.get("back"):
+                return
+            elif item.get("logout"):
+                restore_terminal()
+                item["logout"]()
+                return
+
+
+def restore_terminal():
+    try:
+        curses.endwin()
+    except curses.error:
+        pass
+    if os.name != 'nt':
+        os.system('stty sane')

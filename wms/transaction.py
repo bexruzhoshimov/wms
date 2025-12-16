@@ -1,4 +1,4 @@
-from storage import load_data, save_data
+from .storage import load_data, save_data
 from datetime import datetime
 
 def list_transactions():

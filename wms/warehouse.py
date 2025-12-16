@@ -1,14 +1,18 @@
-from storage import load_data, save_data
+from .storage import load_data, save_data
+from .utils import textColor, clear_console
+
 
 def list_warehouses():
     data = load_data()
     whs = data.setdefault("warehouses", [])
     if not whs:
-        print("No warehouses defined.")
+        print(textColor("Ombor mavjud emas", "red"))
         return
-    print("=== Warehouses ===")
+    clear_console()
+    print(textColor("\n=== Warehouses ===\n", "green", "bold"))
     for w in whs:
         print(f"ID:{w['id']}  Name:{w['name']}")
+
 
 def add_warehouse():
     data = load_data()
@@ -17,40 +21,45 @@ def add_warehouse():
     name = input("Warehouse name: ").strip()
     whs.append({"id": next_id, "name": name})
     save_data(data)
-    print("Warehouse added.")
+    print("Ombor qo'shildi")
+
 
 def update_warehouse():
     data = load_data()
     whs = data.setdefault("warehouses", [])
-    wid = input("Enter warehouse ID to update: ").strip()
+    wid = input("Tahrirlash uchun ombor ID kiriting: ").strip()
     try:
         wid = int(wid)
     except:
-        print("Invalid ID"); return
+        print(textColor("ID mavjud emas", "red", "bold"))
+        return
     for w in whs:
-        if w['id']==wid:
+        if w['id'] == wid:
             w['name'] = input(f"Name ({w['name']}): ").strip() or w['name']
             save_data(data)
-            print("Updated.")
+            print(textColor("Tahrirlandi", "blue", "bold"))
+            print("")
             return
-    print("Warehouse not found.")
+    print(textColor("Ombor topilmadi", "red", "bold"))
+
 
 def delete_warehouse():
     data = load_data()
     whs = data.setdefault("warehouses", [])
-    wid = input("Enter warehouse ID to delete: ").strip()
+    wid = input("O'chirish uchun ombor ID kiriting: ").strip()
     try:
         wid = int(wid)
     except:
-        print("Invalid ID"); return
+        print(textColor("ID mavjud emas", "red", "bold"))
+        return
     for w in whs:
-        if w['id']==wid:
+        if w['id'] == wid:
             products = data.setdefault('products', [])
             for p in products:
-                if p.get('warehouse_id')==wid:
+                if p.get('warehouse_id') == wid:
                     p['warehouse_id'] = None
             whs.remove(w)
             save_data(data)
-            print("Deleted.")
+            print("O'chirildi")
             return
-    print("Warehouse not found.")
+    print("Ombor topilmadi")

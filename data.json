@@ -2,22 +2,69 @@
     "warehouses": [
         {
             "id": 1,
-            "name": "telefonlar"
+            "name": "Telefonlar ombori"
         },
         {
             "id": 2,
-            "name": "yangi ombor"
+            "name": "Noutbuklar ombori"
         },
         {
             "id": 3,
-            "name": "quloqchinlar"
+            "name": "Quloqchinlar ombori"
         },
         {
             "id": 4,
-            "name": "phone"
+            "name": "Aksessuarlar ombori"
+        },
+        {
+            "id": 5,
+            "name": "Smart qurilmalar"
+        },
+        {
+            "id": 6,
+            "name": "Kabel va adapterlar"
+        },
+        {
+            "id": 7,
+            "name": ""
+        },
+        {
+            "id": 8,
+            "name": "2"
+        },
+        {
+            "id": 9,
+            "name": ""
+        },
+        {
+            "id": 10,
+            "name": ""
+        },
+        {
+            "id": 11,
+            "name": ""
+        },
+        {
+            "id": 12,
+            "name": ""
         }
     ],
     "users": [
+        {
+            "username": "1",
+            "password": "1",
+            "role": "admin"
+        },
+        {
+            "username": "manager",
+            "password": "manager123",
+            "role": "admin"
+        },
+        {
+            "username": "user1",
+            "password": "user123",
+            "role": "user"
+        },
         {
             "username": "admin",
             "password": "admin123",
@@ -27,10 +74,151 @@
     "products": [
         {
             "id": 1,
+            "name": "iPhone 15 Pro",
+            "quantity": 12,
+            "warehouse_id": 1,
+            "price": 1499.99
+        },
+        {
+            "id": 2,
+            "name": "Samsung Galaxy S24",
+            "quantity": 8,
+            "warehouse_id": 1,
+            "price": 1199.99
+        },
+        {
+            "id": 3,
+            "name": "Google Pixel 8",
+            "quantity": 15,
+            "warehouse_id": 1,
+            "price": 999.99
+        },
+        {
+            "id": 4,
+            "name": "MacBook Pro 16 M3",
+            "quantity": 5,
+            "warehouse_id": 2,
+            "price": 2799.0
+        },
+        {
+            "id": 5,
+            "name": "Dell XPS 13",
+            "quantity": 9,
+            "warehouse_id": 2,
+            "price": 1399.0
+        },
+        {
+            "id": 6,
+            "name": "HP Spectre x360",
+            "quantity": 6,
+            "warehouse_id": 2,
+            "price": 1599.0
+        },
+        {
+            "id": 7,
+            "name": "AirPods Pro 2",
+            "quantity": 25,
+            "warehouse_id": 3,
+            "price": 249.99
+        },
+        {
+            "id": 8,
+            "name": "Sony WH-1000XM5",
+            "quantity": 14,
+            "warehouse_id": 3,
+            "price": 399.99
+        },
+        {
+            "id": 9,
+            "name": "Samsung Galaxy Buds 2",
+            "quantity": 18,
+            "warehouse_id": 3,
+            "price": 149.99
+        },
+        {
+            "id": 10,
+            "name": "Logitech MX Master 3",
+            "quantity": 20,
+            "warehouse_id": 4,
+            "price": 99.99
+        },
+        {
+            "id": 11,
+            "name": "Razer DeathAdder V3",
+            "quantity": 17,
+            "warehouse_id": 4,
+            "price": 79.99
+        },
+        {
+            "id": 12,
+            "name": "Corsair K70 RGB",
+            "quantity": 10,
+            "warehouse_id": 4,
+            "price": 179.99
+        },
+        {
+            "id": 13,
+            "name": "Apple Watch Series 9",
+            "quantity": 11,
+            "warehouse_id": 5,
+            "price": 429.99
+        },
+        {
+            "id": 14,
+            "name": "Samsung Galaxy Watch 6",
+            "quantity": 13,
+            "warehouse_id": 5,
+            "price": 399.99
+        },
+        {
+            "id": 15,
+            "name": "Xiaomi Mi Band 8",
+            "quantity": 30,
+            "warehouse_id": 5,
+            "price": 69.99
+        },
+        {
+            "id": 16,
+            "name": "USB-C Kabel 1m",
+            "quantity": 100,
+            "warehouse_id": 6,
+            "price": 9.99
+        },
+        {
+            "id": 17,
+            "name": "Anker Power Bank 20000mAh",
+            "quantity": 40,
+            "warehouse_id": 6,
+            "price": 49.99
+        },
+        {
+            "id": 18,
+            "name": "HDMI Kabel 2.1",
+            "quantity": 60,
+            "warehouse_id": 6,
+            "price": 19.99
+        },
+        {
+            "id": 19,
+            "name": "PlayStation 5",
+            "quantity": 4,
+            "warehouse_id": 5,
+            "price": 599.99
+        },
+        {
+            "id": 20,
+            "name": "Xbox Series X",
+            "quantity": 6,
+            "warehouse_id": 5,
+            "price": 579.99
+        },
+        {
+            "id": 21,
             "name": "olma",
-            "quantity": 3,
-            "warehouse_id": 21,
-            "price": 234.0
+            "quantity": 12,
+            "warehouse_id": 1,
+            "price": 129.0
         }
-    ]
+    ],
+    "login": {}
 }

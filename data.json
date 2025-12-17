@@ -62,7 +62,7 @@
         {
             "id": 1,
             "name": "iPhone 15 Pro",
-            "quantity": 1,
+            "quantity": 13,
             "warehouse_id": 1,
             "price": 1499.99
         },
@@ -235,20 +235,31 @@
     },
     "transactions": [
         {
-            "timestamp": "2025-12-17 15:05:10.174753",
-            "type": "INBOUND",
+            "timestamp": "2025-12-17 22:17:43.036396",
+            "type": "Kirim",
             "product_id": 1,
+            "product_name": "iPhone 15 Pro",
             "quantity": 11,
             "from": null,
             "to": 1
         },
         {
-            "timestamp": "2025-12-17 15:05:22.612712",
-            "type": "OUTBOUND",
+            "timestamp": "2025-12-17 22:35:39.435454",
+            "type": "TRANSFER",
             "product_id": 1,
-            "quantity": 22,
+            "product_name": "",
+            "quantity": 12,
             "from": 1,
-            "to": null
+            "to": 1
+        },
+        {
+            "timestamp": "2025-12-17 22:37:20.270448",
+            "type": "TRANSFER",
+            "product_id": 1,
+            "product_name": "",
+            "quantity": 1,
+            "from": 1,
+            "to": 1
         }
     ]
 }

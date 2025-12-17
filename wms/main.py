@@ -83,9 +83,9 @@ reportsMenu = [
 ]
 
 tranzaksiyaMenu = [
-    {"label": "Tranzaksiyalar Ro'yxati", "action": list_transactions},
-    {"label": "Inbound (receive)", "action": inbound},
-    {"label": "Outbound (ship)", "action": outbound},
-    {"label": "Transfer between warehouses", "action": transfer},
-    {"label": "Orqaga", "back": True}
+    {"label": "Tranzaksiyalar ro'yxati", "action": list_transactions},
+    {"label": "Kirim (omborga qabul qilish)", "action": inbound},
+    {"label": "Chiqim (ombordan jo'natish)", "action": outbound},
+    {"label": "Omborlar o'rtasida ko'chirish", "action": transfer},
+    {"label": "Orqaga qaytish", "back": True}
 ]

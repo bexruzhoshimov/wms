@@ -1,3 +1,4 @@
+from datetime import datetime
 from rich.console import Console  # type: ignore
 from rich.table import Table  # type: ignore
 import os
@@ -92,6 +93,38 @@ def display_products_table(products, title="📦 Mahsulotlar ro'yxati"):
             f"[{qty_style}]{p.get('quantity', 0)}[/{qty_style}]",
             f"$ {p.get('price', 0)}".replace(".0", ""),
             str(p.get("warehouse_id", "-"))
+        )
+
+    console.print(table)
+
+
+def display_tranzaksiya_table(products, title="🔁 Tranzaksiyalar ro'yxati"):
+    if not products:
+        console.print("[red]Malumot topilmadi.[/red]")
+        return
+    table = Table(
+        title=title,
+        header_style="bold cyan",
+        show_lines=True
+    )
+    table
+    table.add_column("Mahsulot Nomi", justify="right", style="bold")
+    table.add_column("Turi", justify="right")
+    table.add_column("Mahsulot ID", justify="right")
+    table.add_column("Miqdor", justify="right")
+    table.add_column("Qayerdan", justify="right")
+    table.add_column("Qayerga", justify="right")
+    table.add_column("Vaqti", justify="right")
+
+    for p in products:
+        table.add_row(
+            str(p.get("product_name", "-")),
+            str(p.get("type", "-")),
+            str(p.get("product_id", "-")),
+            str(p.get("quantity", "-")),
+            str(p.get("from", "-")),
+            str(p.get("to", "-")),
+            str(to_seconds(p.get("timestamp", "-"))),
         )
 
     console.print(table)
@@ -208,3 +241,8 @@ def warehouse_status_color(current: int, capacity: int) -> str:
         return "red"
     else:
         return "gray"
+
+
+def to_seconds(timestamp: str) -> str:
+    dt = datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S.%f")
+    return dt.strftime("%Y-%m-%d %H:%M:%S")

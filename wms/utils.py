@@ -176,7 +176,7 @@ def run_menu_curses(stdscr, title, options, role=None):
 
     while True:
         stdscr.clear()
-        stdscr.addstr(0, 0, f"=== {title} ===", curses.A_BOLD)
+        stdscr.addstr(0, 0, f"    === {title} ===", curses.A_BOLD)
         for i, item in enumerate(menu_items):
             label = item.get("label", "")
             if i == idx:

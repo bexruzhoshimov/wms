@@ -16,7 +16,7 @@ def find_user(username):
 
 
 def login():
-    print("=== WMS LOGIN ===\n")
+    print("    === WMS LOGIN ===\n")
     username = input("Username: ").strip()
     password = input_password("Password: ")
     user = find_user(username)

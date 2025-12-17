@@ -3,7 +3,7 @@ from .storage import load_data, save_data
 from .warehouse import list_warehouses, add_warehouse, update_warehouse, delete_warehouse
 from .product import list_products, add_product, update_product, delete_product, search_products
 from .transaction import list_transactions, inbound, outbound, transfer
-from .report import show_summary, export_to_csv, import_from_csv, export_to_excel, import_from_excel
+from .report import show_summary, export_to_csv, import_from_csv
 from .utils import run_menu_curses
 import curses
 
@@ -77,8 +77,6 @@ reportsMenu = [
      "action": export_to_csv},
     {"label": "CSV dan mahsulotlarni import qilish (wms_import.csv)",
      "action": import_from_csv},
-    {"label": "Excelga eksport qilish", "action": export_to_excel},
-    {"label": "Exceldan import qilish", "action": import_from_excel},
     {"label": "Orqaga", "back": True}
 ]
 

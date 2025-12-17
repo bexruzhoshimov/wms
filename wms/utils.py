@@ -174,10 +174,10 @@ def run_menu_curses(stdscr, title, options, role=None):
                     stdscr = curses.initscr()
                     curses.curs_set(0)
                     stdscr.keypad(True)
-            elif item.get("quit"):  # done
+            elif item.get("quit"):
                 clear_console()
                 exit()
-            elif item.get("back"):  # done
+            elif item.get("back"):
                 return
             elif item.get("logout"):
                 item["logout"]()

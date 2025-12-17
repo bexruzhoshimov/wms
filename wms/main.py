@@ -13,8 +13,21 @@ def pause():
 
 
 def warehouse_menu(stdscr):
-    role = load_data()["login"]["role"]
+    data = load_data()
+    role = data["login"]["role"]
+    warehouse_totals = {}
+    for p in data["products"]:
+        wid = p.get("warehouse_id")
+        if wid is not None:
+            warehouse_totals[wid] = warehouse_totals.get(
+                wid, 0) + p["quantity"]
+
+    for w in data["warehouses"]:
+        w["current"] = warehouse_totals.get(w["id"], 0)
+
+    save_data(data)
     run_menu_curses(stdscr, "Ombor Menu", warehauseMenu, role)
+
 
 def product_menu(stdscr):
     role = load_data()["login"]["role"]

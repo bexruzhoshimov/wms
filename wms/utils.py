@@ -72,13 +72,12 @@ def display_products_table(products, title="📦 Mahsulotlar ro'yxati"):
     if not products:
         console.print("[red]Malumot topilmadi.[/red]")
         return
-
     table = Table(
         title=title,
         header_style="bold cyan",
         show_lines=True
     )
-
+    table
     table.add_column("ID", justify="right", style="bold")
     table.add_column("Nomi")
     table.add_column("Soni", justify="right")
@@ -95,6 +94,34 @@ def display_products_table(products, title="📦 Mahsulotlar ro'yxati"):
             str(p.get("warehouse_id", "-"))
         )
 
+    console.print(table)
+
+
+def display_warehouse_table(products, title="🏢 Omborlar ro'yxati"):
+    if not products:
+        console.print("[red]Malumot topilmadi.[/red]")
+        return
+    table = Table(
+        title=title,
+        header_style="bold cyan",
+        show_lines=True
+    )
+    table.add_column("ID", justify="right", style="bold")
+    table.add_column("Nomi")
+    table.add_column("Mahsulotlar soni", justify="right")
+    table.add_column("Sig'imi", justify="right")
+    table.add_column("Location", justify="right")
+
+    for p in products:
+        current_style = warehouse_status_color(
+            p.get("current", 0), p.get("capacity", 0))
+        table.add_row(
+            str(p.get("id", "-")),
+            p.get("name", "-"),
+            f"[{current_style}]{p.get('current', 0)}[/{current_style}]",
+            f"{p.get('capacity', 0)}",
+            str(p.get("location", "-"))
+        )
     console.print(table)
 
 
@@ -165,3 +192,19 @@ def restore_terminal():
         pass
     if os.name != 'nt':
         os.system('stty sane')
+
+
+def warehouse_status_color(current: int, capacity: int) -> str:
+    if capacity <= 0:
+        return "gray"
+
+    percent = (current / capacity) * 100
+
+    if percent <= 60:
+        return "green"
+    elif percent <= 80:
+        return "yellow"
+    elif percent <= 100:
+        return "red"
+    else:
+        return "gray"

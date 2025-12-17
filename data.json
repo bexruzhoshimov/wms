@@ -2,87 +2,31 @@
     "warehouses": [
         {
             "id": 1,
-            "name": "Telefonlar ombori"
+            "name": "Telefonlar ombori",
+            "location": "Buxoro, G'ijduvon",
+            "capacity": 10000,
+            "current": 48
         },
         {
             "id": 2,
-            "name": "Noutbuklar ombori"
+            "name": "quloqchinlar",
+            "location": "buxoro",
+            "capacity": 90,
+            "current": 20
         },
         {
             "id": 3,
-            "name": "Quloqchinlar ombori"
+            "name": "stollar",
+            "location": "toshkent",
+            "capacity": 20,
+            "current": 57
         },
         {
             "id": 4,
-            "name": "Aksessuarlar ombori"
-        },
-        {
-            "id": 5,
-            "name": "Smart qurilmalar"
-        },
-        {
-            "id": 6,
-            "name": "Kabel va adapterlar"
-        },
-        {
-            "id": 7,
-            "name": ""
-        },
-        {
-            "id": 8,
-            "name": "2"
-        },
-        {
-            "id": 9,
-            "name": ""
-        },
-        {
-            "id": 10,
-            "name": ""
-        },
-        {
-            "id": 11,
-            "name": ""
-        },
-        {
-            "id": 12,
-            "name": ""
-        },
-        {
-            "id": 13,
-            "name": ""
-        },
-        {
-            "id": 14,
-            "name": ""
-        },
-        {
-            "id": 15,
-            "name": ""
-        },
-        {
-            "id": 16,
-            "name": ""
-        },
-        {
-            "id": 17,
-            "name": ""
-        },
-        {
-            "id": 18,
-            "name": ""
-        },
-        {
-            "id": 19,
-            "name": ""
-        },
-        {
-            "id": 20,
-            "name": "2121"
-        },
-        {
-            "id": 21,
-            "name": ""
+            "name": "23",
+            "location": "32",
+            "capacity": 32,
+            "current": 47
         }
     ],
     "users": [
@@ -196,21 +140,21 @@
             "id": 13,
             "name": "Apple Watch Series 9",
             "quantity": 11,
-            "warehouse_id": 5,
+            "warehouse_id": null,
             "price": 429.99
         },
         {
             "id": 14,
             "name": "Samsung Galaxy Watch 6",
             "quantity": 13,
-            "warehouse_id": 5,
+            "warehouse_id": null,
             "price": 399.99
         },
         {
             "id": 15,
             "name": "Xiaomi Mi Band 8",
             "quantity": 30,
-            "warehouse_id": 5,
+            "warehouse_id": null,
             "price": 69.99
         },
         {
@@ -238,14 +182,14 @@
             "id": 19,
             "name": "PlayStation 5",
             "quantity": 4,
-            "warehouse_id": 5,
+            "warehouse_id": null,
             "price": 599.99
         },
         {
             "id": 20,
             "name": "Xbox Series X",
             "quantity": 6,
-            "warehouse_id": 5,
+            "warehouse_id": null,
             "price": 579.99
         },
         {
@@ -254,6 +198,27 @@
             "quantity": 12,
             "warehouse_id": 1,
             "price": 129.0
+        },
+        {
+            "id": 22,
+            "name": "olmaaaa",
+            "quantity": 1,
+            "warehouse_id": 1,
+            "price": 21222.0
+        },
+        {
+            "id": 23,
+            "name": "",
+            "quantity": 0,
+            "warehouse_id": 1,
+            "price": 0.0
+        },
+        {
+            "id": 24,
+            "name": "",
+            "quantity": 0,
+            "warehouse_id": 1,
+            "price": 0.0
         }
     ],
     "login": {

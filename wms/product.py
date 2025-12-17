@@ -1,40 +1,46 @@
 from .storage import load_data, save_data
-from .utils import clear_console, display_products_table, textColor
+from .utils import clear_console, display_products_table, textColor, display_warehouse_table
 
 
 def add_product():
     data = load_data()
-    print(data["warehouses"])
+    display_warehouse_table(data["warehouses"])
     products = data.setdefault("products", [])
     next_id = max([p['id'] for p in products], default=0) + 1
-    wid = input("Warehouse ID (leave blank for none): ").strip()
+    wid = input("Ombor ID: ").strip()
     name = input("Mahsulot Nomi: ").strip()
-    qty = input("Miqdori: ").strip()
-    try:
-        qty = int(qty)
-    except:
-        qty = 0
-    try:
-        wid = int(wid) if wid else None
-    except:
-        wid = None
-    price = input("Narxi: ").strip()
-    try:
-        price = float(price) if price else 0.0
-    except:
-        price = 0.0
-    prod = {"id": next_id, "name": name, "quantity": qty,
-            "warehouse_id": wid, "price": price}
-    products.append(prod)
-    save_data(data)
-    clear_console()
+    ids = {w["id"] for w in data["warehouses"]}
 
-    display_products_table([prod], title="➕ Mahsulot qo'shildi")
+    if name == "" or not int(wid) in ids:
+        clear_console()
+        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red", "bold"))
+    else:
+        qty = input("Miqdori: ").strip()
+        try:
+            qty = int(qty)
+        except:
+            qty = 0
+        try:
+            wid = int(wid) if wid else None
+        except:
+            wid = None
+        price = input("Narxi: ").strip()
+        try:
+            price = float(price) if price else 0.0
+        except:
+            price = 0.0
+        prod = {"id": next_id, "name": name, "quantity": qty,
+                "warehouse_id": wid, "price": price}
+        products.append(prod)
+        save_data(data)
+        clear_console()
+        display_products_table([prod], title="➕ Mahsulot qo'shildi")
 
 
 def update_product():
     data = load_data()
     products = data.setdefault("products", [])
+    display_warehouse_table(products)
     pid = input("Tahrirlash uchun Mahsulot ID kiriting: ").strip()
     try:
         pid = int(pid)
@@ -63,14 +69,15 @@ def update_product():
                 except:
                     pass
             save_data(data)
-            print("Mahsulot yangilandi")
+            print(textColor("Mahsulot yangilandi", "blue", "blue"))
             return
-    print("Mahsulot topilmadi")
+    print(textColor("Mahsulot topilmadi", "red", "blue"))
 
 
 def delete_product():
     data = load_data()
     products = data.setdefault("products", [])
+    display_warehouse_table(products)
     pid = input("O'chirish uchun mahsulot ID kiriting: ").strip()
     try:
         pid = int(pid)
@@ -81,9 +88,9 @@ def delete_product():
         if p['id'] == pid:
             products.remove(p)
             save_data(data)
-            print("O'chirildi")
+            print(textColor("O'chirildi", "blue", "blue"))
             return
-    print("Mahsulot topilmadi")
+    print(textColor("Mahsulot topilmadi", "red", "blue"))
 
 
 def list_products(filter_warehouse=None):

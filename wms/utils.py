@@ -140,9 +140,8 @@ def run_menu_curses(stdscr, title, options, role=None):
     menu_items = [i for i in options if not i.get(
         "role") or i.get("role") == role]
     idx = 0
-    exit_program = False
 
-    while not exit_program:
+    while True:
         stdscr.clear()
         stdscr.addstr(0, 0, f"=== {title} ===", curses.A_BOLD)
         for i, item in enumerate(menu_items):
@@ -175,13 +174,14 @@ def run_menu_curses(stdscr, title, options, role=None):
                     stdscr = curses.initscr()
                     curses.curs_set(0)
                     stdscr.keypad(True)
-            elif item.get("quit") or item.get("exit"):
-                exit_program = True
-            elif item.get("back"):
+            elif item.get("quit"):  # done
+                clear_console()
+                exit()
+            elif item.get("back"):  # done
                 return
             elif item.get("logout"):
-                restore_terminal()
                 item["logout"]()
+                exit()
                 return
 
 

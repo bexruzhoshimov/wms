@@ -18,9 +18,7 @@ def find_user(username):
 def login():
     print("=== WMS LOGIN ===\n")
     username = input("Username: ").strip()
-    print(f"printbu{username}")
     password = input_password("Password: ")
-    print(f"printbu{password}")
     user = find_user(username)
     if user and user.get("password") == password:
         data = load_data()
@@ -44,9 +42,5 @@ def logout():
     data = load_data()
     data["login"] = {}
     save_data(data)
-    while True:
-        clear_console()
-        user = None
-        while not user:
-            user = login()
-        # main_menu()
+    print("salom")
+    # login()

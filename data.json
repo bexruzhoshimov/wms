@@ -1,41 +1,4 @@
 {
-    "warehouses": [
-        {
-            "id": 1,
-            "name": "Telefonlar ombori",
-            "location": "Buxoro, G'ijduvon",
-            "capacity": 10000,
-            "current": 37
-        },
-        {
-            "id": 2,
-            "name": "quloqchinlar",
-            "location": "buxoro",
-            "capacity": 90,
-            "current": 20
-        },
-        {
-            "id": 3,
-            "name": "stollar",
-            "location": "toshkent",
-            "capacity": 20,
-            "current": 57
-        },
-        {
-            "id": 4,
-            "name": "23",
-            "location": "32",
-            "capacity": 32,
-            "current": 47
-        },
-        {
-            "id": 5,
-            "name": "1",
-            "location": "1",
-            "capacity": 1,
-            "current": 0
-        }
-    ],
     "users": [
         {
             "username": "1",
@@ -58,208 +21,375 @@
             "role": "admin"
         }
     ],
-    "products": [
-        {
-            "id": 1,
-            "name": "iPhone 15 Pro",
-            "quantity": 13,
-            "warehouse_id": 1,
-            "price": 1499.99
-        },
-        {
-            "id": 2,
-            "name": "Samsung Galaxy S24",
-            "quantity": 8,
-            "warehouse_id": 1,
-            "price": 1199.99
-        },
-        {
-            "id": 3,
-            "name": "Google Pixel 8",
-            "quantity": 15,
-            "warehouse_id": 1,
-            "price": 999.99
-        },
-        {
-            "id": 4,
-            "name": "MacBook Pro 16 M3",
-            "quantity": 5,
-            "warehouse_id": 2,
-            "price": 2799.0
-        },
-        {
-            "id": 5,
-            "name": "Dell XPS 13",
-            "quantity": 9,
-            "warehouse_id": 2,
-            "price": 1399.0
-        },
-        {
-            "id": 6,
-            "name": "HP Spectre x360",
-            "quantity": 6,
-            "warehouse_id": 2,
-            "price": 1599.0
-        },
-        {
-            "id": 7,
-            "name": "AirPods Pro 2",
-            "quantity": 25,
-            "warehouse_id": 3,
-            "price": 249.99
-        },
-        {
-            "id": 8,
-            "name": "Sony WH-1000XM5",
-            "quantity": 14,
-            "warehouse_id": 3,
-            "price": 399.99
-        },
-        {
-            "id": 9,
-            "name": "Samsung Galaxy Buds 2",
-            "quantity": 18,
-            "warehouse_id": 3,
-            "price": 149.99
-        },
-        {
-            "id": 10,
-            "name": "Logitech MX Master 3",
-            "quantity": 20,
-            "warehouse_id": 4,
-            "price": 99.99
-        },
-        {
-            "id": 11,
-            "name": "Razer DeathAdder V3",
-            "quantity": 17,
-            "warehouse_id": 4,
-            "price": 79.99
-        },
-        {
-            "id": 12,
-            "name": "Corsair K70 RGB",
-            "quantity": 10,
-            "warehouse_id": 4,
-            "price": 179.99
-        },
-        {
-            "id": 13,
-            "name": "Apple Watch Series 9",
-            "quantity": 11,
-            "warehouse_id": null,
-            "price": 429.99
-        },
-        {
-            "id": 14,
-            "name": "Samsung Galaxy Watch 6",
-            "quantity": 13,
-            "warehouse_id": null,
-            "price": 399.99
-        },
-        {
-            "id": 15,
-            "name": "Xiaomi Mi Band 8",
-            "quantity": 30,
-            "warehouse_id": null,
-            "price": 69.99
-        },
-        {
-            "id": 16,
-            "name": "USB-C Kabel 1m",
-            "quantity": 100,
-            "warehouse_id": 6,
-            "price": 9.99
-        },
-        {
-            "id": 17,
-            "name": "Anker Power Bank 20000mAh",
-            "quantity": 40,
-            "warehouse_id": 6,
-            "price": 49.99
-        },
-        {
-            "id": 18,
-            "name": "HDMI Kabel 2.1",
-            "quantity": 60,
-            "warehouse_id": 6,
-            "price": 19.99
-        },
-        {
-            "id": 19,
-            "name": "PlayStation 5",
-            "quantity": 4,
-            "warehouse_id": null,
-            "price": 599.99
-        },
-        {
-            "id": 20,
-            "name": "Xbox Series X",
-            "quantity": 6,
-            "warehouse_id": null,
-            "price": 579.99
-        },
-        {
-            "id": 21,
-            "name": "olma",
-            "quantity": 12,
-            "warehouse_id": 1,
-            "price": 129.0
-        },
-        {
-            "id": 22,
-            "name": "olmaaaa",
-            "quantity": 1,
-            "warehouse_id": 1,
-            "price": 21222.0
-        },
-        {
-            "id": 23,
-            "name": "",
-            "quantity": 0,
-            "warehouse_id": 1,
-            "price": 0.0
-        },
-        {
-            "id": 24,
-            "name": "",
-            "quantity": 0,
-            "warehouse_id": 1,
-            "price": 0.0
-        }
-    ],
     "login": {
         "username": "1",
         "password": "1",
         "role": "admin"
     },
+    "warehouses": [
+        {
+            "id": 1,
+            "name": "Elektronika markazi",
+            "location": "Toshkent, Chilonzor",
+            "capacity": 20000,
+            "current": 275
+        },
+        {
+            "id": 2,
+            "name": "Kompyuter texnikasi",
+            "location": "Samarqand",
+            "capacity": 12000,
+            "current": 495
+        },
+        {
+            "id": 3,
+            "name": "Smartfon ombori",
+            "location": "Buxoro",
+            "capacity": 15000,
+            "current": 315
+        },
+        {
+            "id": 4,
+            "name": "Aksessuarlar ombori",
+            "location": "Andijon",
+            "capacity": 8000,
+            "current": 500
+        },
+        {
+            "id": 5,
+            "name": "Oyinsport ombori",
+            "location": "Farg‘ona",
+            "capacity": 10000,
+            "current": 155
+        },
+        {
+            "id": 6,
+            "name": "Maishiy texnika",
+            "location": "Namangan",
+            "capacity": 13000,
+            "current": 570
+        },
+        {
+            "id": 7,
+            "name": "Audio va video texnika",
+            "location": "Jizzax",
+            "capacity": 9000,
+            "current": 200
+        },
+        {
+            "id": 8,
+            "name": "Telefon aksessuarlari",
+            "location": "Qarshi",
+            "capacity": 7000,
+            "current": 450
+        },
+        {
+            "id": 9,
+            "name": "Kompyuter aksessuarlari",
+            "location": "Navoiy",
+            "capacity": 6000,
+            "current": 380
+        },
+        {
+            "id": 10,
+            "name": "Yoritish va elektr",
+            "location": "Termiz",
+            "capacity": 5000,
+            "current": 160
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Lenovo ThinkPad E15",
+            "quantity": 150,
+            "warehouse_id": 2,
+            "price": 899.0
+        },
+        {
+            "id": 2,
+            "name": "Asus VivoBook 17",
+            "quantity": 120,
+            "warehouse_id": 2,
+            "price": 749.0
+        },
+        {
+            "id": 3,
+            "name": "iPhone 14 Pro",
+            "quantity": 80,
+            "warehouse_id": 3,
+            "price": 1099.0
+        },
+        {
+            "id": 4,
+            "name": "Samsung Galaxy S23",
+            "quantity": 95,
+            "warehouse_id": 3,
+            "price": 999.0
+        },
+        {
+            "id": 5,
+            "name": "Xiaomi Redmi Note 13",
+            "quantity": 140,
+            "warehouse_id": 3,
+            "price": 299.0
+        },
+        {
+            "id": 6,
+            "name": "Logitech Wireless Mouse",
+            "quantity": 320,
+            "warehouse_id": 4,
+            "price": 29.99
+        },
+        {
+            "id": 7,
+            "name": "Mechanical Keyboard RGB",
+            "quantity": 180,
+            "warehouse_id": 4,
+            "price": 89.99
+        },
+        {
+            "id": 8,
+            "name": "USB-C Charger 65W",
+            "quantity": 250,
+            "warehouse_id": 8,
+            "price": 39.99
+        },
+        {
+            "id": 9,
+            "name": "Sony WH-1000XM5",
+            "quantity": 60,
+            "warehouse_id": 7,
+            "price": 399.99
+        },
+        {
+            "id": 10,
+            "name": "AirPods Pro 2",
+            "quantity": 75,
+            "warehouse_id": 7,
+            "price": 249.99
+        },
+        {
+            "id": 11,
+            "name": "Samsung Galaxy Buds 3",
+            "quantity": 90,
+            "warehouse_id": 8,
+            "price": 149.99
+        },
+        {
+            "id": 12,
+            "name": "PlayStation 5",
+            "quantity": 50,
+            "warehouse_id": 5,
+            "price": 599.99
+        },
+        {
+            "id": 13,
+            "name": "Xbox Series X",
+            "quantity": 55,
+            "warehouse_id": 5,
+            "price": 579.99
+        },
+        {
+            "id": 14,
+            "name": "MacBook Pro 16 M3",
+            "quantity": 40,
+            "warehouse_id": 2,
+            "price": 2799.0
+        },
+        {
+            "id": 15,
+            "name": "Dell XPS 13",
+            "quantity": 60,
+            "warehouse_id": 2,
+            "price": 1399.0
+        },
+        {
+            "id": 16,
+            "name": "HP Spectre x360",
+            "quantity": 45,
+            "warehouse_id": 2,
+            "price": 1599.0
+        },
+        {
+            "id": 17,
+            "name": "Apple Watch Series 9",
+            "quantity": 80,
+            "warehouse_id": 1,
+            "price": 429.99
+        },
+        {
+            "id": 18,
+            "name": "Samsung Galaxy Watch 6",
+            "quantity": 75,
+            "warehouse_id": 1,
+            "price": 399.99
+        },
+        {
+            "id": 19,
+            "name": "Xiaomi Mi Band 8",
+            "quantity": 120,
+            "warehouse_id": 1,
+            "price": 69.99
+        },
+        {
+            "id": 20,
+            "name": "HDMI Kabel 2.1 3m",
+            "quantity": 200,
+            "warehouse_id": 9,
+            "price": 19.99
+        },
+        {
+            "id": 21,
+            "name": "USB Hub 4-port",
+            "quantity": 180,
+            "warehouse_id": 9,
+            "price": 25.99
+        },
+        {
+            "id": 22,
+            "name": "Power Bank 20000mAh",
+            "quantity": 150,
+            "warehouse_id": 6,
+            "price": 49.99
+        },
+        {
+            "id": 23,
+            "name": "USB-C Kabel 1m",
+            "quantity": 300,
+            "warehouse_id": 6,
+            "price": 9.99
+        },
+        {
+            "id": 24,
+            "name": "Logitech Webcam C920",
+            "quantity": 65,
+            "warehouse_id": 7,
+            "price": 69.99
+        },
+        {
+            "id": 25,
+            "name": "Bluetooth Speaker",
+            "quantity": 110,
+            "warehouse_id": 8,
+            "price": 59.99
+        },
+        {
+            "id": 26,
+            "name": "Desk Lamp LED",
+            "quantity": 90,
+            "warehouse_id": 10,
+            "price": 29.99
+        },
+        {
+            "id": 27,
+            "name": "Extension Cord 5m",
+            "quantity": 70,
+            "warehouse_id": 10,
+            "price": 19.99
+        },
+        {
+            "id": 28,
+            "name": "Gaming Chair",
+            "quantity": 50,
+            "warehouse_id": 5,
+            "price": 249.99
+        },
+        {
+            "id": 29,
+            "name": "Monitor 27 inch",
+            "quantity": 80,
+            "warehouse_id": 2,
+            "price": 299.99
+        },
+        {
+            "id": 30,
+            "name": "Router WiFi 6",
+            "quantity": 120,
+            "warehouse_id": 6,
+            "price": 79.99
+        }
+    ],
     "transactions": [
         {
-            "timestamp": "2025-12-17 22:17:43.036396",
+            "timestamp": "2026-01-03 10:15:42",
+            "type": "Kirim",
+            "product_id": 3,
+            "quantity": 40,
+            "from": null,
+            "to": 3
+        },
+        {
+            "timestamp": "2026-01-05 14:22:10",
             "type": "Kirim",
             "product_id": 1,
-            "product_name": "iPhone 15 Pro",
-            "quantity": 11,
+            "quantity": 60,
+            "from": null,
+            "to": 2
+        },
+        {
+            "timestamp": "2026-01-08 09:40:05",
+            "type": "Transfer",
+            "product_id": 6,
+            "quantity": 50,
+            "from": 4,
+            "to": 1
+        },
+        {
+            "timestamp": "2026-01-10 11:30:00",
+            "type": "Kirim",
+            "product_id": 12,
+            "quantity": 30,
+            "from": null,
+            "to": 5
+        },
+        {
+            "timestamp": "2026-01-12 12:45:22",
+            "type": "Transfer",
+            "product_id": 3,
+            "quantity": 20,
+            "from": 3,
+            "to": 1
+        },
+        {
+            "timestamp": "2026-01-15 09:20:10",
+            "type": "Kirim",
+            "product_id": 17,
+            "quantity": 50,
             "from": null,
             "to": 1
         },
         {
-            "timestamp": "2025-12-17 22:35:39.435454",
-            "type": "TRANSFER",
-            "product_id": 1,
-            "product_name": "",
-            "quantity": 12,
+            "timestamp": "2026-01-16 14:50:33",
+            "type": "Transfer",
+            "product_id": 18,
+            "quantity": 25,
             "from": 1,
-            "to": 1
+            "to": 3
         },
         {
-            "timestamp": "2025-12-17 22:37:20.270448",
-            "type": "TRANSFER",
-            "product_id": 1,
-            "product_name": "",
-            "quantity": 1,
-            "from": 1,
-            "to": 1
+            "timestamp": "2026-01-17 16:05:47",
+            "type": "Kirim",
+            "product_id": 20,
+            "quantity": 100,
+            "from": null,
+            "to": 9
+        },
+        {
+            "timestamp": "2026-01-18 10:15:12",
+            "type": "Transfer",
+            "product_id": 25,
+            "quantity": 40,
+            "from": 8,
+            "to": 3
+        },
+        {
+            "timestamp": "2026-01-19 09:40:22",
+            "type": "Kirim",
+            "product_id": 28,
+            "quantity": 20,
+            "from": null,
+            "to": 5
         }
     ]
 }

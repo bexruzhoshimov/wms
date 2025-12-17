@@ -161,7 +161,7 @@ def run_menu_curses(stdscr, title, options, role=None):
             item = menu_items[idx]
             if item.get("action"):
                 func = item["action"]
-                if func.__name__ in ["warehouse_menu", "product_menu"]:
+                if func.__name__ in ["warehouse_menu", "product_menu", "reports_menu", "transaction_menu"]:
                     func(stdscr)
                 else:
                     restore_terminal()

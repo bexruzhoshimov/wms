@@ -42,5 +42,3 @@ def logout():
     data = load_data()
     data["login"] = {}
     save_data(data)
-    print("salom")
-    # login()

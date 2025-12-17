@@ -1,5 +1,6 @@
 import json
 from threading import Lock
+
 DATA_FILE = "data.json"
 _lock = Lock()
 

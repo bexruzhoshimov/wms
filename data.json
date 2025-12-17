@@ -5,7 +5,7 @@
             "name": "Telefonlar ombori",
             "location": "Buxoro, G'ijduvon",
             "capacity": 10000,
-            "current": 48
+            "current": 37
         },
         {
             "id": 2,
@@ -27,6 +27,13 @@
             "location": "32",
             "capacity": 32,
             "current": 47
+        },
+        {
+            "id": 5,
+            "name": "1",
+            "location": "1",
+            "capacity": 1,
+            "current": 0
         }
     ],
     "users": [
@@ -55,7 +62,7 @@
         {
             "id": 1,
             "name": "iPhone 15 Pro",
-            "quantity": 12,
+            "quantity": 1,
             "warehouse_id": 1,
             "price": 1499.99
         },
@@ -225,5 +232,23 @@
         "username": "1",
         "password": "1",
         "role": "admin"
-    }
+    },
+    "transactions": [
+        {
+            "timestamp": "2025-12-17 15:05:10.174753",
+            "type": "INBOUND",
+            "product_id": 1,
+            "quantity": 11,
+            "from": null,
+            "to": 1
+        },
+        {
+            "timestamp": "2025-12-17 15:05:22.612712",
+            "type": "OUTBOUND",
+            "product_id": 1,
+            "quantity": 22,
+            "from": 1,
+            "to": null
+        }
+    ]
 }

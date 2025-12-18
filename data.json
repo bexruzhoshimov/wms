@@ -39,7 +39,7 @@
             "name": "Kompyuter texnikasi",
             "location": "Samarqand",
             "capacity": 12000,
-            "current": 495
+            "current": 496
         },
         {
             "id": 3,
@@ -95,14 +95,14 @@
             "name": "Yoritish va elektr",
             "location": "Termiz",
             "capacity": 5000,
-            "current": 160
+            "current": 4960
         }
     ],
     "products": [
         {
             "id": 1,
             "name": "Lenovo ThinkPad E15",
-            "quantity": 150,
+            "quantity": 151,
             "warehouse_id": 2,
             "price": 899.0
         },
@@ -308,6 +308,13 @@
             "quantity": 120,
             "warehouse_id": 6,
             "price": 79.99
+        },
+        {
+            "id": 31,
+            "name": "chiroq",
+            "quantity": 4800,
+            "warehouse_id": 10,
+            "price": 100.0
         }
     ],
     "transactions": [
@@ -390,6 +397,33 @@
             "quantity": 20,
             "from": null,
             "to": 5
+        },
+        {
+            "timestamp": "2025-12-18 14:19:02.410568",
+            "type": "Kirim",
+            "product_id": 1,
+            "product_name": "Lenovo ThinkPad E15",
+            "quantity": 10,
+            "from": null,
+            "to": 2
+        },
+        {
+            "timestamp": "2025-12-18 14:19:08.830906",
+            "type": "Chiqim",
+            "product_id": 1,
+            "product_name": "Lenovo ThinkPad E15",
+            "quantity": 9,
+            "from": 2,
+            "to": null
+        },
+        {
+            "timestamp": "2025-12-18 14:19:25.295880",
+            "type": "TRANSFER",
+            "product_id": 1,
+            "product_name": "",
+            "quantity": 90,
+            "from": 2,
+            "to": 2
         }
     ]
 }

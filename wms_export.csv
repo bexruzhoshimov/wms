@@ -1,0 +1,32 @@
+id,name,quantity,warehouse_id,price
+1,Lenovo ThinkPad E15,151,2,899.0
+2,Asus VivoBook 17,120,2,749.0
+3,iPhone 14 Pro,80,3,1099.0
+4,Samsung Galaxy S23,95,3,999.0
+5,Xiaomi Redmi Note 13,140,3,299.0
+6,Logitech Wireless Mouse,320,4,29.99
+7,Mechanical Keyboard RGB,180,4,89.99
+8,USB-C Charger 65W,250,8,39.99
+9,Sony WH-1000XM5,60,7,399.99
+10,AirPods Pro 2,75,7,249.99
+11,Samsung Galaxy Buds 3,90,8,149.99
+12,PlayStation 5,50,5,599.99
+13,Xbox Series X,55,5,579.99
+14,MacBook Pro 16 M3,40,2,2799.0
+15,Dell XPS 13,60,2,1399.0
+16,HP Spectre x360,45,2,1599.0
+17,Apple Watch Series 9,80,1,429.99
+18,Samsung Galaxy Watch 6,75,1,399.99
+19,Xiaomi Mi Band 8,120,1,69.99
+20,HDMI Kabel 2.1 3m,200,9,19.99
+21,USB Hub 4-port,180,9,25.99
+22,Power Bank 20000mAh,150,6,49.99
+23,USB-C Kabel 1m,300,6,9.99
+24,Logitech Webcam C920,65,7,69.99
+25,Bluetooth Speaker,110,8,59.99
+26,Desk Lamp LED,90,10,29.99
+27,Extension Cord 5m,70,10,19.99
+28,Gaming Chair,50,5,249.99
+29,Monitor 27 inch,80,2,299.99
+30,Router WiFi 6,120,6,79.99
+31,chiroq,4800,10,100.0

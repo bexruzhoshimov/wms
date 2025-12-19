@@ -9,50 +9,53 @@ import curses
 
 
 def warehouse_menu(stdscr):
-    data = load_data()
-    role = data["login"]["role"]
-    warehouse_totals = {}
-    for p in data["products"]:
-        wid = p.get("warehouse_id")
-        if wid is not None:
-            warehouse_totals[wid] = warehouse_totals.get(
-                wid, 0) + p["quantity"]
+    # data = load_data()
+    # warehouse_totals = {}
 
-    for w in data["warehouses"]:
-        w["current"] = warehouse_totals.get(w["id"], 0)
+    # for product in data["products"]:
+    #     warehouse_id = product["warehouse_id"]
+    #     if warehouse_id is not None:
+    #         if warehouse_id not in warehouse_totals:
+    #             warehouse_totals[warehouse_id] = 0
+    #         warehouse_totals[warehouse_id] += product["quantity"]
 
-    save_data(data)
-    run_menu_curses(stdscr, "Ombor Menu", warehauseMenu, role)
+    # for warehouse in data["warehouses"]:
+    #     warehouseID = warehouse["id"]
+    #     if warehouseID in warehouse_totals:
+    #         warehouse["current"] = warehouse_totals[warehouseID]
+    #     else:
+    #         warehouse["current"] = 0
+
+    # save_data(data)
+
+    run_menu_curses(stdscr, "Ombor Menu", warehauseMenu)
 
 
 def product_menu(stdscr):
-    role = load_data()["login"]["role"]
-    run_menu_curses(stdscr, "Mahsulotlar Menu", productMenu, role)
+    run_menu_curses(stdscr, "Mahsulotlar Menu", productMenu)
 
 
 def transaction_menu(stdscr):
-    role = load_data()["login"]["role"]
-    run_menu_curses(stdscr, "Tranzaksiyalar Menu", tranzaksiyaMenu, role)
+    run_menu_curses(stdscr, "Tranzaksiyalar Menu", tranzaksiyaMenu)
 
 
 def reports_menu(stdscr):
-    role = load_data()["login"]["role"]
-    run_menu_curses(stdscr, "Hisobotlar Menu", reportsMenu, role)
+    run_menu_curses(stdscr, "Hisobotlar Menu", reportsMenu)
 
 
 def main_menu():
-    role = load_data()["login"]["role"]
-    curses.wrapper(run_menu_curses, "WMS MENU", mainMenu, role)
+    curses.wrapper(run_menu_curses, "WMS MENU", mainMenu)
 
 
 mainMenu = [
     {"label": "Ombor boshqaruvi", "action": warehouse_menu},
-    {"label": "Mahsulot boshqaruvi", "action": product_menu, "role": "admin"},
+    {"label": "Mahsulot boshqaruvi", "action": product_menu},
     {"label": "Tranzaksiyalar", "action": transaction_menu},
-    {"label": "Hisobotlar", "action": reports_menu, "role": "admin"},
+    {"label": "Hisobotlar", "action": reports_menu},
     {"label": "Hisobdan chiqish", "logout": logout},
     {"label": "Chiqish", "quit": True}
 ]
+
 
 warehauseMenu = [
     {"label": "Ombor ro'yxati", "action": list_warehouses},
@@ -61,6 +64,7 @@ warehauseMenu = [
     {"label": "Ombor o'chirish", "action": delete_warehouse},
     {"label": "Orqaga", "back": True}
 ]
+
 
 productMenu = [
     {"label": "Mahsulotlar ro'yxati", "action": list_products},
@@ -71,14 +75,14 @@ productMenu = [
     {"label": "Orqaga", "back": True}
 ]
 
+
 reportsMenu = [
     {"label": "Xulosa ko'rsatish", "action": show_summary},
-    {"label": "Mahsulotlarni CSVga eksport qilish (wms_export.csv)",
-     "action": export_to_csv},
-    {"label": "CSV dan mahsulotlarni import qilish (wms_import.csv)",
-     "action": import_from_csv},
+    {"label": "Eksport qilish (wms_export.csv)", "action": export_to_csv},
+    {"label": "Import qilish (wms_import.csv)", "action": import_from_csv},
     {"label": "Orqaga", "back": True}
 ]
+
 
 tranzaksiyaMenu = [
     {"label": "Tranzaksiyalar ro'yxati", "action": list_transactions},

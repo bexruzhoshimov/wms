@@ -4,88 +4,122 @@ from .utils import clear_console, display_products_table, textColor, display_war
 
 def add_product():
     data = load_data()
+    products = data["products"]
     display_warehouse_table(data["warehouses"])
-    products = data.setdefault("products", [])
-    next_id = max([p['id'] for p in products], default=0) + 1
-    wid = input("Ombor ID: ").strip()
-    name = input("Mahsulot Nomi: ").strip()
-    ids = {w["id"] for w in data["warehouses"]}
 
-    if name == "" or not int(wid) in ids:
+    max_id = 0
+    for p in products:
+        if p["id"] > max_id:
+            max_id = p["id"]
+
+    warehouseID = input("Ombor ID: ")
+    name = input("Mahsulot Nomi: ")
+
+    warehouse_ids = []
+    for w in data["warehouses"]:
+        warehouse_ids.append(w["id"])
+
+    if name == "":
         clear_console()
-        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red", "bold"))
-    else:
-        qty = input("Miqdori: ").strip()
-        try:
-            qty = int(qty)
-        except:
-            qty = 0
-        try:
-            wid = int(wid) if wid else None
-        except:
-            wid = None
-        price = input("Narxi: ").strip()
-        try:
-            price = float(price) if price else 0.0
-        except:
-            price = 0.0
-        prod = {"id": next_id, "name": name, "quantity": qty,
-                "warehouse_id": wid, "price": price}
-        products.append(prod)
-        save_data(data)
+        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red"))
+        return
+
+    try:
+        warehouseID = int(warehouseID)
+    except:
+        warehouseID = None
+
+    if warehouseID not in warehouse_ids:
         clear_console()
-        display_products_table([prod], title="➕ Mahsulot qo'shildi")
+        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red"))
+        return
+
+    quantity = input("Miqdori: ")
+    try:
+        quantity = int(quantity)
+    except:
+        quantity = 0
+
+    price = input("Narxi: ")
+    try:
+        price = float(price)
+    except:
+        price = 0.0
+
+    product = {
+        "id": max_id + 1,
+        "name": name,
+        "quantity": quantity,
+        "warehouse_id": warehouseID,
+        "price": price
+    }
+
+    products.append(product)
+    save_data(data)
+
+    clear_console()
+    display_products_table([product], title="➕ Mahsulot qo'shildi")
 
 
 def update_product():
     data = load_data()
-    products = data.setdefault("products", [])
-    display_warehouse_table(products)
-    pid = input("Tahrirlash uchun Mahsulot ID kiriting: ").strip()
+    products = data["products"]
+    display_products_table(products)
+
+    productID = input("Tahrirlash uchun Mahsulot ID kiriting: ")
     try:
-        pid = int(pid)
+        productID = int(productID)
     except:
-        print(textColor("ID mavjud emas", "red", "bold"))
+        print(textColor("ID mavjud emas", "red"))
         return
+
     for p in products:
-        if p['id'] == pid:
-            p['name'] = input(f"Name ({p['name']}): ") or p['name']
-            qty = input(f"Quantity ({p['quantity']}): ").strip()
-            if qty:
+        if p["id"] == productID:
+            name = input(f"Name ({p['name']}): ")
+            if name != "":
+                p["name"] = name
+
+            quantity = input(f"Quantity ({str(p['quantity'])}): ")
+            if quantity != "":
                 try:
-                    p['quantity'] = int(qty)
+                    p["quantity"] = int(quantity)
                 except:
                     pass
-            wid = input(f"Warehouse ID ({p.get('warehouse_id')}): ").strip()
-            if wid:
+
+            warehouseID = input(f"Warehouse ID ({str(p['warehouse_id'])}): ")
+            if warehouseID != "":
                 try:
-                    p['warehouse_id'] = int(wid)
-                except:
-                    p['warehouse_id'] = p.get('warehouse_id')
-            price = input(f"Price ({p.get('price')}): ").strip()
-            if price:
-                try:
-                    p['price'] = float(price)
+                    p["warehouse_id"] = int(warehouseID)
                 except:
                     pass
+
+            price = input(f"Price ({str(p['price'])}): ")
+            if price != "":
+                try:
+                    p["price"] = float(price)
+                except:
+                    pass
+
             save_data(data)
-            print(textColor("Mahsulot yangilandi", "blue", "blue"))
+            print(textColor("Mahsulot yangilandi", "blue"))
             return
     print(textColor("Mahsulot topilmadi", "red", "blue"))
 
 
 def delete_product():
     data = load_data()
-    products = data.setdefault("products", [])
-    display_warehouse_table(products)
-    pid = input("O'chirish uchun mahsulot ID kiriting: ").strip()
+    products = data["products"]
+    display_products_table(products)
+
+    productID = input("O'chirish uchun mahsulot ID kiriting: ")
     try:
-        pid = int(pid)
+        productID = int(productID)
     except:
-        print(textColor("ID mavjud emas", "red", "bold"))
+        print(textColor("ID mavjud emas", "red"))
         return
+
     for p in products:
-        if p['id'] == pid:
+        if p["id"] == productID:
             products.remove(p)
             save_data(data)
             print(textColor("O'chirildi", "blue", "blue"))
@@ -93,25 +127,20 @@ def delete_product():
     print(textColor("Mahsulot topilmadi", "red", "blue"))
 
 
-def list_products(filter_warehouse=None):
+def list_products():
     data = load_data()
-    products = data.setdefault("products", [])
-
-    if filter_warehouse:
-        products = [p for p in products if p.get(
-            "warehouse_id") == filter_warehouse]
-
+    products = data["products"]
     display_products_table(products, title="📦 Mahsulotlar ro'yxati")
 
 
 def search_products():
     data = load_data()
-    products = data.setdefault("products", [])
-    term = input('Qidirish Nomi yoki ID: ').strip().lower()
-
+    products = data["products"]
+    term = input("Qidirish Nomi yoki ID: ").lower()
     found = []
+
     for p in products:
-        if term == str(p.get('id')) or term in p.get('name', '').lower():
+        if str(p["id"]) == term or term in p["name"].lower():
             found.append(p)
 
-    display_products_table(found, title=f"🔍 Qidiruv natijasi: {term}")
+    display_products_table(found, title="🔍 Qidiruv natijasi: " + term)

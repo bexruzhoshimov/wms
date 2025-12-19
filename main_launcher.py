@@ -1,4 +1,4 @@
-from wms.auth import login, ensure_admin_exists
+from wms.auth import login
 from wms.main import main_menu
 from wms.storage import load_data
 from wms.utils import clear_console
@@ -14,7 +14,6 @@ if __name__ == "__main__":
     if (data["login"] != {}):
         main_menu()
     else:
-        ensure_admin_exists()
         while True:
             clear_console()
             user = None

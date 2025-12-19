@@ -1,41 +1,38 @@
 from .storage import load_data, save_data
-from .utils import input_password, textColor, clear_console
-
+from .utils import textColor, clear_console
 
 def get_users():
     data = load_data()
-    return data.setdefault("users", [])
+    return data["users"]
 
 
 def find_user(username):
     users = get_users()
-    for u in users:
-        if u.get("username") == username:
-            return u
+
+    for user in users:
+        if user["username"] == username:
+            return user
     return None
 
 
 def login():
     print("    === WMS LOGIN ===\n")
-    username = input("Username: ").strip()
-    password = input_password("Password: ")
+
+    username = input("Username: ")
+    password = input("Password: ")
+
     user = find_user(username)
-    if user and user.get("password") == password:
-        data = load_data()
-        data["login"] = user
-        save_data(data)
-        return user
+
+    if user is not None:
+        if user["password"] == password:
+            data = load_data()
+            data["login"] = user
+            save_data(data)
+            return user
+
     clear_console()
-    print(textColor("Foydalanuvchi mavjud emas", "red", "bold"))
-
-
-def ensure_admin_exists():
-    data = load_data()
-    users = data.setdefault("users", [])
-    if not any(u.get("username") == "admin" for u in users):
-        users.append(
-            {"username": "admin", "password": "admin", "role": "admin"})
-        save_data(data)
+    print(textColor("Foydalanuvchi mavjud emas", "red"))
+    return None
 
 
 def logout():

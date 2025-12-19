@@ -5,122 +5,176 @@ from .utils import clear_console, textColor, display_tranzaksiya_table
 
 def list_transactions():
     data = load_data()
-    tx = data.setdefault('transactions', [])
-    display_tranzaksiya_table(tx)
+    transactions = data["transactions"]
+    display_tranzaksiya_table(transactions)
 
 
 def write_transaction(t_type, product_id, product_name, quantity, from_wh=None, to_wh=None):
     data = load_data()
-    tx = data.setdefault('transactions', [])
-    tx.append({
-        'timestamp': datetime.now().isoformat(sep=' '),
-        'type': t_type,
-        'product_id': product_id,
-        'product_name': product_name,
-        'quantity': quantity,
-        'from': from_wh,
-        'to': to_wh
+    transactions = data["transactions"]
+
+    transactions.append({
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "type": t_type,
+        "product_id": product_id,
+        "product_name": product_name,
+        "quantity": quantity,
+        "from": from_wh,
+        "to": to_wh
     })
+
     save_data(data)
 
 
 def inbound():
     data = load_data()
-    products = data.setdefault('products', [])
-    pid = input('Kirim uchun Mahsulot ID kiritig: ').strip()
+    products = data["products"]
+    productID = input("Kirim uchun Mahsulot ID kiritig: ")
+
     try:
-        pid = int(pid)
+        productID = int(productID)
     except:
         clear_console()
-        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red", "bold"))
+        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red"))
         return
-    qty = input("Qo'shiladigan miqdor: ").strip()
+
+    quantity = input("Qo'shiladigan miqdor: ")
     try:
-        qty = int(qty)
+        quantity = int(quantity)
     except:
-        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red", "bold"))
+        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red"))
         return
+
     for p in products:
-        if p['id'] == pid:
-            p['quantity'] += qty
+        if p["id"] == productID:
+            p["quantity"] = p["quantity"] + quantity
             save_data(data)
-            write_transaction('Kirim', pid, p['name'], qty, from_wh=None,
-                              to_wh=p.get('warehouse_id'))
-            print(textColor("Kirim qilindi", "blue", "bold"))
+
+            write_transaction(
+                "Kirim",
+                productID,
+                p["name"],
+                quantity,
+                from_wh=None,
+                to_wh=p["warehouse_id"]
+            )
+
+            print(textColor("Kirim qilindi", "blue"))
             return
-    print(textColor("Mahsulot topilmadi", "red", "bold"))
+
+    print(textColor("Mahsulot topilmadi", "red"))
 
 
 def outbound():
     data = load_data()
-    products = data.setdefault('products', [])
-    pid = input('Chiqim uchun Mahsulot ID kiritig: ').strip()
+    products = data["products"]
+    productID = input("Chiqim uchun Mahsulot ID kiritig: ")
+
     try:
-        pid = int(pid)
+        productID = int(productID)
     except:
-        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red", "bold"))
+        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red"))
         return
-    qty = input("Ayiriladigan miqdor: ").strip()
+
+    quantity = input("Ayiriladigan miqdor: ")
     try:
-        qty = int(qty)
+        quantity = int(quantity)
     except:
-        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red", "bold"))
+        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red"))
         return
+
     for p in products:
-        if p['id'] == pid:
-            if p['quantity'] < qty:
-                print('Mahsulot yetarli miqdorda emas')
+        if p["id"] == productID:
+            if p["quantity"] < quantity:
+                print("Mahsulot yetarli miqdorda emas")
                 return
-            p['quantity'] -= qty
+
+            p["quantity"] = p["quantity"] - quantity
             save_data(data)
-            write_transaction('Chiqim', pid, p['name'], qty,
-                              from_wh=p.get('warehouse_id'), to_wh=None)
-            print(textColor("Chiqim qilindi", "blue", "bold"))
+
+            write_transaction(
+                "Chiqim",
+                productID,
+                p["name"],
+                quantity,
+                from_wh=p["warehouse_id"],
+                to_wh=None
+            )
+
+            print(textColor("Chiqim qilindi", "blue"))
             return
+
     print(textColor("Mahsulot topilmadi", "red", "blue"))
 
 
 def transfer():
     data = load_data()
-    products = data.setdefault('products', [])
-    pid = input("Transfer mahsulot ID: ").strip()
+    products = data["products"]
+    productID = input("Transfer mahsulot ID: ")
+
     try:
-        pid = int(pid)
+        productID = int(productID)
     except:
         print(textColor("Mahsulot topilmadi", "red", "blue"))
         return
-    to_w = input('Ombor ID: ').strip()
+
+    to_warehouse = input("Ombor ID: ")
     try:
-        to_w = int(to_w)
+        to_warehouse = int(to_warehouse)
     except:
         print(textColor("Ombor topilmadi", "red", "blue"))
         return
-    qty = input("Ko'chirish miqdori: ").strip()
+
+    quantity = input("Ko'chirish miqdori: ")
     try:
-        qty = int(qty)
+        quantity = int(quantity)
     except:
-        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red", "bold"))
+        print(textColor("Ma'lumot to'g'ri kiritilmadi", "red"))
         return
-    for p in products:
-        if p['id'] == pid:
-            if p['quantity'] < qty:
+
+    for product in products:
+        if product["id"] == productID:
+            if product["quantity"] < quantity:
                 print("O'tkazish uchun yetarli miqdor yo'q")
                 return
-            src_w = p.get('warehouse_id')
-            p['quantity'] -= qty
-            found = None
+
+            source_wh = product["warehouse_id"]
+            product["quantity"] = product["quantity"] - quantity
+
+            target_product = None
             for q in products:
-                if q['name'] == p['name'] and q.get('warehouse_id') == to_w:
-                    found = q
+                if q["name"] == product["name"] and q["warehouse_id"] == to_warehouse:
+                    target_product = q
                     break
-            if found:
-                found['quantity'] += qty
+
+            if target_product is not None:
+                target_product["quantity"] = target_product["quantity"] + quantity
             else:
-                next_id = max([it['id'] for it in products], default=0) + 1
-                products.append(
-                    {'id': next_id, 'name': p['name'], 'quantity': qty, 'warehouse_id': to_w, 'price': p.get('price', 0.0)})
+                max_id = 0
+                for item in products:
+                    if item["id"] > max_id:
+                        max_id = item["id"]
+
+                products.append({
+                    "id": max_id + 1,
+                    "name": product["name"],
+                    "quantity": quantity,
+                    "warehouse_id": to_warehouse,
+                    "price": product.get("price", 0.0)
+                })
+
             save_data(data)
-            write_transaction('TRANSFER', pid, "", qty, from_wh=src_w, to_wh=to_w)
-            print(textColor("Transfer qilindi", "blue", "bold"))
+
+            write_transaction(
+                "TRANSFER",
+                productID,
+                product["name"],
+                quantity,
+                from_wh=source_wh,
+                to_wh=to_warehouse
+            )
+
+            print(textColor("Transfer qilindi", "blue"))
             return
+
     print(textColor("Mahsulot topilmadi", "red", "blue"))

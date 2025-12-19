@@ -2,29 +2,24 @@
     "users": [
         {
             "username": "1",
-            "password": "1",
-            "role": "admin"
+            "password": "1"
         },
         {
             "username": "manager",
-            "password": "manager123",
-            "role": "admin"
+            "password": "manager123"
         },
         {
             "username": "user1",
-            "password": "user123",
-            "role": "user"
+            "password": "user123"
         },
         {
             "username": "admin",
-            "password": "admin123",
-            "role": "admin"
+            "password": "admin123"
         }
     ],
     "login": {
         "username": "1",
-        "password": "1",
-        "role": "admin"
+        "password": "1"
     },
     "warehouses": [
         {
@@ -32,14 +27,14 @@
             "name": "Elektronika markazi",
             "location": "Toshkent, Chilonzor",
             "capacity": 20000,
-            "current": 275
+            "current": 398
         },
         {
             "id": 2,
             "name": "Kompyuter texnikasi",
             "location": "Samarqand",
             "capacity": 12000,
-            "current": 496
+            "current": 507
         },
         {
             "id": 3,
@@ -102,7 +97,7 @@
         {
             "id": 1,
             "name": "Lenovo ThinkPad E15",
-            "quantity": 151,
+            "quantity": 162,
             "warehouse_id": 2,
             "price": 899.0
         },
@@ -315,6 +310,13 @@
             "quantity": 4800,
             "warehouse_id": 10,
             "price": 100.0
+        },
+        {
+            "id": 32,
+            "name": "12",
+            "quantity": 123,
+            "warehouse_id": 1,
+            "price": 1234.0
         }
     ],
     "transactions": [
@@ -423,6 +425,15 @@
             "product_name": "",
             "quantity": 90,
             "from": 2,
+            "to": 2
+        },
+        {
+            "timestamp": "2025-12-19 21:31:53",
+            "type": "Kirim",
+            "product_id": 1,
+            "product_name": "Lenovo ThinkPad E15",
+            "quantity": 11,
+            "from": null,
             "to": 2
         }
     ]

@@ -56,7 +56,7 @@ def input_password(prompt="Password: "):
                 if ch in ("\n", "\r"):
                     print()
                     break
-                elif ch == "\x7f":  # Backspace
+                elif ch == "\x7f":
                     if pwd:
                         pwd = pwd[:-1]
                         print("\b \b", end="", flush=True)

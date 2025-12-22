@@ -9,25 +9,28 @@ import curses
 
 
 def warehouse_menu(stdscr):
-    # data = load_data()
-    # warehouse_totals = {}
+    data = load_data()
+    warehouse_totals = {}
 
-    # for product in data["products"]:
-    #     warehouse_id = product["warehouse_id"]
-    #     if warehouse_id is not None:
-    #         if warehouse_id not in warehouse_totals:
-    #             warehouse_totals[warehouse_id] = 0
-    #         warehouse_totals[warehouse_id] += product["quantity"]
+    for product in data["products"]:
+        warehouseID = product["warehouse_id"]
 
-    # for warehouse in data["warehouses"]:
-    #     warehouseID = warehouse["id"]
-    #     if warehouseID in warehouse_totals:
-    #         warehouse["current"] = warehouse_totals[warehouseID]
-    #     else:
-    #         warehouse["current"] = 0
+        if warehouseID is not None:
+            if warehouseID not in warehouse_totals:
+                warehouse_totals[warehouseID] = 0
 
-    # save_data(data)
+            warehouse_totals[warehouseID] = warehouse_totals[warehouseID] + \
+                product["quantity"]
 
+    for warehouse in data["warehouses"]:
+        warehouseID = warehouse["id"]
+
+        if warehouseID in warehouse_totals:
+            warehouse["current"] = warehouse_totals[warehouseID]
+        else:
+            warehouse["current"] = 0
+
+    save_data(data)
     run_menu_curses(stdscr, "Ombor Menu", warehauseMenu)
 
 

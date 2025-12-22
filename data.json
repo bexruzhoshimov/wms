@@ -34,7 +34,7 @@
             "name": "Kompyuter texnikasi",
             "location": "Samarqand",
             "capacity": 12000,
-            "current": 507
+            "current": 10517
         },
         {
             "id": 3,
@@ -97,7 +97,7 @@
         {
             "id": 1,
             "name": "Lenovo ThinkPad E15",
-            "quantity": 162,
+            "quantity": 10172,
             "warehouse_id": 2,
             "price": 899.0
         },
@@ -433,6 +433,24 @@
             "product_id": 1,
             "product_name": "Lenovo ThinkPad E15",
             "quantity": 11,
+            "from": null,
+            "to": 2
+        },
+        {
+            "timestamp": "2025-12-22 09:40:13",
+            "type": "Kirim",
+            "product_id": 1,
+            "product_name": "Lenovo ThinkPad E15",
+            "quantity": 10,
+            "from": null,
+            "to": 2
+        },
+        {
+            "timestamp": "2025-12-22 09:40:45",
+            "type": "Kirim",
+            "product_id": 1,
+            "product_name": "Lenovo ThinkPad E15",
+            "quantity": 10000,
             "from": null,
             "to": 2
         }
